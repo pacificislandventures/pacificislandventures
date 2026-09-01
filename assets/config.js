@@ -7,7 +7,7 @@ window.PIV_CONFIG = {
   APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxWkzvNQZ33CwiIGnGm_Lfes8UdSmdgyocOlaX7kSFO4FJPREO3hGhHpkPKLInG_qZQHg/exec",
   // Google Ads conversion tracking on /beta/. Both empty = no ad scripts load,
   // no ad cookies are set. Tag ID looks like "AW-123456789"; the label comes
-  // from the "Beta signup" conversion action in the Ads account.
-  ADS_TAG_ID: "",
-  ADS_CONVERSION_LABEL: "",
+  // from the "Submit lead form" conversion action in the Ads account.
+  ADS_TAG_ID: "AW-18423664427",
+  ADS_CONVERSION_LABEL: "nfE7CLe3k-wcEKuei9FE",
 };
