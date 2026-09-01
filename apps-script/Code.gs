@@ -11,7 +11,7 @@
  */
 
 // Must match GOOGLE_CLIENT_ID in the site's assets/config.js.
-var CLIENT_ID = "269908899334-fi40n8742dv15ob18kkmtckp6s05ec12.apps.googleusercontent.com";
+var CLIENT_ID = "569984070726-glhd5ilvbhq2seh1onjsdkot0i6cm6ch.apps.googleusercontent.com";
 var SHEET_NAME = "Signups";
 
 function doPost(e) {

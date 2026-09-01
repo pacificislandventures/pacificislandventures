@@ -29,7 +29,7 @@ Squarespace → **Domains** → pacificislandventures.com → **DNS Settings**:
    - `185.199.109.153`
    - `185.199.110.153`
    - `185.199.111.153`
-3. Add a **CNAME** record: host `www` → `shawnfirth86-sys.github.io`
+3. Add a **CNAME** record: host `www` → `pacificislandventures.github.io`
 4. Wait for DNS to propagate (minutes to a few hours), then in the repo's
    **Settings → Pages** confirm the custom domain shows a green check and tick
    **Enforce HTTPS** (the certificate appears automatically, can take up to an hour).
@@ -47,7 +47,7 @@ The beta page uses "Sign in with Google", so signups are always real, verified G
    - Authorized JavaScript origins:
      - `https://pacificislandventures.com`
      - `https://www.pacificislandventures.com`
-     - `https://shawnfirth86-sys.github.io` (fallback/testing)
+     - `https://pacificislandventures.github.io` (fallback/testing)
 5. Copy the **Client ID** (ends in `.apps.googleusercontent.com`).
 
 ### 3. Beta signup — Google Sheet + Apps Script (~5 min)
@@ -91,6 +91,6 @@ alias in Gmail (Settings → Accounts → "Send mail as") once forwarding works.
 
 ## Local preview
 
-Any static server works, e.g. `python -m http.server` from the repo root.
+Any static server works, e.g. `python -m http.server 8123` from the repo root.
 Note the Google button only renders on origins listed in the OAuth client
-(add `http://localhost:8000` there if you want to test sign-in locally).
+(`http://localhost:8123` is already listed for local sign-in testing).
