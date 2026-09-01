@@ -9,9 +9,13 @@ Hosted on **GitHub Pages** from this repo. Domain registered at **Squarespace**.
 
 | Path | Purpose |
 |---|---|
-| `/` | Business landing page (resale + studio) |
+| `/` | Umbrella portal — deliberately vague, doors into each venture |
+| `/resale/` | Resale & Buyouts venture page (bulk trading cards, estate/collection buyouts) |
 | `/space-traders/` | Space Traders game page |
 | `/beta/` | Closed beta signup (Sign in with Google) |
+
+**TODO**: the "Browse our current lots" button on `/resale/` needs the local auction
+site URL (marked with a `TODO(shawn)` comment in `resale/index.html`).
 
 ## One-time setup
 
