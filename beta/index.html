@@ -33,7 +33,7 @@
     <div class="starfield"></div>
     <div class="wrap" style="text-align: center;">
       <h1 style="max-width: none;">Join the <em>Space Traders</em> closed beta</h1>
-      <p class="lede" style="margin-left: auto; margin-right: auto;">Seats open in small waves. Sign up with Google and we'll email you when yours is ready.</p>
+      <p class="lede" style="margin-left: auto; margin-right: auto;">The first wave flies <strong>October 1</strong>, and seats open in small waves after that. Sign up with Google and we'll email you when yours is ready.</p>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
         <p>One tap — we only receive the email address and name on your Google account, so beta invites reach a verified inbox.</p>
         <div id="gbtn"></div>
         <div id="status" class="beta-status"></div>
-        <p class="beta-note">You'll need an Android phone to fly the beta. We use your email only for beta invites and build announcements — no other mail, never shared, and you can ask off the list any time at <a href="mailto:contact@pacificislandventures.com">contact@pacificislandventures.com</a>.</p>
+        <p class="beta-note">You'll need an Android phone to fly the beta. Invites and build announcements come from <a href="mailto:play@pacificislandventures.com">play@pacificislandventures.com</a> — add it to your contacts so your seat doesn't land in spam. We use your email for nothing else, never share it, and you can ask off the list any time at that same address.</p>
       </div>
     </div>
   </section>
@@ -76,7 +76,7 @@
     <nav>
       <a href="/">All ventures</a>
       <a href="/space-traders/">Space Traders</a>
-      <a href="mailto:contact@pacificislandventures.com">Contact</a>
+      <a href="mailto:play@pacificislandventures.com">Contact</a>
     </nav>
   </div>
 </footer>
@@ -122,11 +122,11 @@
         } else if (data.ok) {
           setStatus("ok", "You're on the list" + (who.email ? " as " + who.email : "") + "! We'll email you when a beta seat opens.");
         } else {
-          setStatus("err", "Signup didn't go through (" + (data.error || "unknown error") + "). Please try again, or email contact@pacificislandventures.com.");
+          setStatus("err", "Signup didn't go through (" + (data.error || "unknown error") + "). Please try again, or email play@pacificislandventures.com.");
         }
       })
       .catch(function () {
-        setStatus("err", "Couldn't reach the signup service. Please try again in a minute, or email contact@pacificislandventures.com.");
+        setStatus("err", "Couldn't reach the signup service. Please try again in a minute, or email play@pacificislandventures.com.");
       });
   }
 
@@ -135,7 +135,7 @@
     btnEl = document.getElementById("gbtn");
 
     if (!configured()) {
-      setStatus("wait", "Signups are opening shortly — check back soon, or email contact@pacificislandventures.com and we'll add you by hand.");
+      setStatus("wait", "Signups are opening shortly — check back soon, or email play@pacificislandventures.com and we'll add you by hand.");
       return;
     }
 

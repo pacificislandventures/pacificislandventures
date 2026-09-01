@@ -68,11 +68,17 @@ Edit [`assets/config.js`](assets/config.js): paste the Client ID and the `/exec`
 Commit and push. Done — signups appear as rows in the Sheet (timestamp, email, name),
 deduplicated by email.
 
-### 5. Contact email
+### 5. Contact emails
 
-The site lists `contact@pacificislandventures.com`. Squarespace domains include free
-email forwarding: **Domains → pacificislandventures.com → Email → Email forwarding**,
-forward `contact@` to your real inbox. (Or edit the address in the three HTML files.)
+The site uses two addresses. Squarespace domains include free email forwarding
+(**Domains → pacificislandventures.com → Email → Email forwarding**):
+
+- `contact@pacificislandventures.com` — umbrella + resale contact (portal and `/resale/`)
+- `play@pacificislandventures.com` — Space Traders + beta contact (`/space-traders/` and
+  `/beta/`), and the address beta invites/build announcements are sent from
+
+Forward both to your real inbox. To *send* beta mail as `play@`, add it as a send-as
+alias in Gmail (Settings → Accounts → "Send mail as") once forwarding works.
 
 ## How the signup stays trustworthy
 
