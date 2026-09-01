@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Traders Closed Beta Signup | Pacific Island Ventures</title>
+<meta name="description" content="Sign up for the Space Traders closed beta with your Google account.">
+<meta property="og:title" content="Space Traders — Closed Beta Signup">
+<meta property="og:description" content="Sign up for the Space Traders closed beta with your Google account.">
+<meta property="og:url" content="https://pacificislandventures.com/beta/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="/"><span class="mark">🏝️</span>Pacific Island Ventures</a>
+    <div class="nav-links">
+      <a href="/#resale">Resale</a>
+      <a href="/#studio">Studio</a>
+      <a href="/space-traders/">Space Traders</a>
+      <a class="cta" href="/beta/">Join the Beta</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="hero" style="position: relative; padding-bottom: 32px;">
+    <div class="starfield"></div>
+    <div class="wrap" style="text-align: center;">
+      <h1 style="max-width: none;">Join the <em>Space Traders</em> closed beta</h1>
+      <p class="lede" style="margin-left: auto; margin-right: auto;">Seats open in small waves. Sign up with Google and we'll email you when yours is ready.</p>
+    </div>
+  </div>
+
+  <section style="padding-top: 16px;">
+    <div class="wrap">
+      <div class="beta-box">
+        <h2>Reserve your seat</h2>
+        <p>One tap — we only receive the email address and name on your Google account, so beta invites reach a verified inbox.</p>
+        <div id="gbtn"></div>
+        <div id="status" class="beta-status"></div>
+        <p class="beta-note">You'll need an Android phone to fly the beta. We use your email only for beta invites and build announcements — no other mail, never shared, and you can ask off the list any time at <a href="mailto:contact@pacificislandventures.com">contact@pacificislandventures.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <h2 class="section-title">What beta pilots get</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>Early builds</h4>
+          <p>New builds as features land — fleet refits, colony contracts, pirate hunts, player-built stations.</p>
+        </div>
+        <div class="feature">
+          <h4>A direct line</h4>
+          <p>Your reports go straight to the developer. What you flag shapes the next build.</p>
+        </div>
+        <div class="feature">
+          <h4>First-wave credit</h4>
+          <p>Beta pilots are the first captains in the galaxy. We don't forget the people who flew the rough builds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Pacific Island Ventures</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/space-traders/">Space Traders</a>
+      <a href="mailto:contact@pacificislandventures.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/config.js"></script>
+<script src="https://accounts.google.com/gsi/client" defer></script>
+<script defer>
+(function () {
+  var cfg = window.PIV_CONFIG || {};
+  var statusEl, btnEl;
+
+  function setStatus(kind, msg) {
+    statusEl.className = "beta-status " + kind;
+    statusEl.textContent = msg;
+  }
+
+  function configured() {
+    return cfg.GOOGLE_CLIENT_ID && cfg.GOOGLE_CLIENT_ID.indexOf("PASTE_") !== 0 &&
+           cfg.APPS_SCRIPT_URL && cfg.APPS_SCRIPT_URL.indexOf("PASTE_") !== 0;
+  }
+
+  function decodeJwtPayload(jwt) {
+    try {
+      var b64 = jwt.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+      return JSON.parse(decodeURIComponent(atob(b64).split("").map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join("")));
+    } catch (e) { return {}; }
+  }
+
+  function onCredential(response) {
+    var who = decodeJwtPayload(response.credential);
+    setStatus("wait", "Signing you up" + (who.email ? " as " + who.email : "") + "…");
+    fetch(cfg.APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ credential: response.credential })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.ok && data.duplicate) {
+          setStatus("ok", "You're already on the list" + (who.email ? " as " + who.email : "") + ". We'll be in touch!");
+        } else if (data.ok) {
+          setStatus("ok", "You're on the list" + (who.email ? " as " + who.email : "") + "! We'll email you when a beta seat opens.");
+        } else {
+          setStatus("err", "Signup didn't go through (" + (data.error || "unknown error") + "). Please try again, or email contact@pacificislandventures.com.");
+        }
+      })
+      .catch(function () {
+        setStatus("err", "Couldn't reach the signup service. Please try again in a minute, or email contact@pacificislandventures.com.");
+      });
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    statusEl = document.getElementById("status");
+    btnEl = document.getElementById("gbtn");
+
+    if (!configured()) {
+      setStatus("wait", "Signups are opening shortly — check back soon, or email contact@pacificislandventures.com and we'll add you by hand.");
+      return;
+    }
+
+    function init() {
+      if (!(window.google && google.accounts && google.accounts.id)) {
+        setTimeout(init, 150);
+        return;
+      }
+      google.accounts.id.initialize({
+        client_id: cfg.GOOGLE_CLIENT_ID,
+        callback: onCredential,
+        auto_select: false
+      });
+      google.accounts.id.renderButton(btnEl, {
+        type: "standard",
+        theme: "filled_black",
+        size: "large",
+        text: "signup_with",
+        shape: "pill",
+        logo_alignment: "left"
+      });
+    }
+    init();
+  });
+})();
+</script>
+
+</body>
+</html>
