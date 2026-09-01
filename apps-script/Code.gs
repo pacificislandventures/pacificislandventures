@@ -1,9 +1,9 @@
 /**
  * Space Traders closed-beta signup backend.
  *
- * Deploy: bound to a Google Sheet (Extensions > Apps Script), as a Web App,
- * "Execute as: Me", "Who has access: Anyone". Paste the /exec URL into
- * assets/config.js on the website.
+ * Deploy: as a Web App, "Execute as: Me", "Who has access: Anyone" — either
+ * bound to the signup Sheet (Extensions > Apps Script) or standalone with
+ * SPREADSHEET_ID set. Paste the /exec URL into assets/config.js on the website.
  *
  * The website POSTs {credential: <Google ID token>}. This script verifies the
  * token with Google (signature, audience, expiry) and only records addresses
@@ -13,6 +13,8 @@
 // Must match GOOGLE_CLIENT_ID in the site's assets/config.js.
 var CLIENT_ID = "569984070726-glhd5ilvbhq2seh1onjsdkot0i6cm6ch.apps.googleusercontent.com";
 var SHEET_NAME = "Signups";
+// Leave empty when the script is bound to the Sheet; set when standalone.
+var SPREADSHEET_ID = "1JWzlylnk1b3OEP61mIFVHryNtM7Q_PLcmsgGCTPP2TQ";
 
 function doPost(e) {
   try {
@@ -54,7 +56,8 @@ function doGet() {
 }
 
 function getSheet() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SPREADSHEET_ID ? SpreadsheetApp.openById(SPREADSHEET_ID)
+                          : SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
