@@ -278,6 +278,18 @@ footer {
 .beta-status.err { display: block; background: rgba(251, 113, 133, 0.10); color: #fda4af; border: 1px solid rgba(251, 113, 133, 0.3); }
 .beta-status.wait { display: block; background: rgba(157, 178, 195, 0.10); color: var(--ink-dim); border: 1px solid var(--line); }
 
+/* ---------- screenshot gallery ---------- */
+.shots {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 18px;
+}
+.shot { margin: 0; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius); border: 1px solid var(--line);
+}
+.shot figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--ink-dim); }
+
 @media (max-width: 640px) {
   .nav-links { gap: 16px; }
   .nav-links a:not(.cta) { display: none; }
