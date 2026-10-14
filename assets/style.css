@@ -246,6 +246,11 @@ footer {
 }
 .feature h4 { font-size: 1.02rem; margin-bottom: 6px; }
 .feature p { color: var(--ink-dim); font-size: 0.92rem; }
+.feature .tag {
+  display: inline-block; margin-left: 8px; padding: 2px 9px; vertical-align: middle;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--warm); border: 1px solid var(--warm); border-radius: 999px;
+}
 
 /* ---------- detail rows (alternating) ---------- */
 .detail {
