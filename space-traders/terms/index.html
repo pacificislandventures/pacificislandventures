@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Space Traders Terms</title>
+<meta name="description" content="Terms of Service for the Space Traders game for Android.">
+<style>
+/* Layout: one reading column near 65 characters; numbered clauses so each part can be named; the store table and the consumer-rights note are the only set-off objects. No external fonts or scripts. */
+:root {
+  --bg: #F3F5F8;
+  --ink: #151C27;
+  --muted: #566174;
+  --rule: #D4DBE4;
+  --wash: #E7EBF1;
+  --accent: #8A5800;
+  --f-display: "Bahnschrift", "DIN Alternate", "sans-serif-condensed", "Roboto Condensed", system-ui, sans-serif;
+  --f-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --f-label: ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, "Roboto Mono", monospace;
+  --t-label: 0.8125rem;
+  --t-body: 1rem;
+  --t-h2: 1.3125rem;
+  --t-h1: clamp(2rem, 7vw, 2.75rem);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0E131B;
+    --ink: #E3E8EF;
+    --muted: #9AA6B7;
+    --rule: #263141;
+    --wash: #161E2A;
+    --accent: #E2B45E;
+    color-scheme: dark;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.page {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding-block: clamp(28px, 6vw, 56px) 48px;
+  display: grid;
+  gap: 32px;
+}
+.page > * { min-width: 0; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+p, ul { margin: 0; }
+h1, h2 { text-wrap: balance; margin: 0; }
+
+.mast { display: grid; gap: 14px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.eyebrow {
+  font-family: var(--f-label);
+  font-size: var(--t-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h1 {
+  font-family: var(--f-display);
+  font-size: var(--t-h1);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+}
+.lede { color: var(--muted); max-width: 34rem; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 12px 24px;
+  margin: 6px 0 0;
+}
+.facts div { display: grid; gap: 2px; min-width: 0; }
+.facts dt {
+  font-family: var(--f-label);
+  font-size: var(--t-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.mono { font-family: var(--f-label); font-size: 0.9375em; }
+
+.toc h2 {
+  font-family: var(--f-label);
+  font-size: var(--t-label);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 2.2em;
+  columns: 15rem 2;
+  column-gap: 32px;
+}
+.toc li { break-inside: avoid; padding-block: 2px; }
+.toc li::marker { font-family: var(--f-label); color: var(--muted); font-size: 0.875em; }
+
+.clause { display: grid; gap: 12px; padding-top: 28px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.clause h2 {
+  display: flex;
+  gap: 0.65em;
+  align-items: baseline;
+  font-family: var(--f-display);
+  font-size: var(--t-h2);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.num {
+  font-family: var(--f-label);
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--accent);
+  min-width: 1.6em;
+  flex: none;
+}
+.clause ul { padding-left: 1.25em; display: grid; gap: 6px; }
+.clause li::marker { color: var(--accent); }
+.note { color: var(--muted); font-size: 0.9375rem; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+caption {
+  caption-side: top;
+  text-align: left;
+  padding: 10px 14px;
+  font-family: var(--f-label);
+  font-size: var(--t-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--wash);
+  border-bottom: 1px solid var(--rule);
+}
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+thead th { font-weight: 600; white-space: nowrap; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+tbody th { font-weight: 600; }
+
+.clause.rights {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--wash);
+  padding: 22px clamp(16px, 4vw, 24px);
+}
+
+.foot { padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9375rem; display: grid; gap: 4px; }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="mast">
+    <p class="eyebrow">Space Traders &middot; Android game</p>
+    <h1>Terms of Service</h1>
+    <p class="lede">These terms explain the rules for playing Space Traders, buying items in the game, and using its online features. We wrote them in plain English.</p>
+    <dl class="facts">
+      <div><dt>Effective date</dt><dd>7 November 2026</dd></div>
+      <div><dt>App</dt><dd class="mono">com.spacetraders.game</dd></div>
+      <div><dt>Version</dt><dd>4.0 and later</dd></div>
+      <div><dt>Developer</dt><dd>As named on the app&rsquo;s Google Play page</dd></div>
+    </dl>
+  </header>
+
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title">Contents</h2>
+    <ol>
+      <li><a href="#about">About these terms</a></li>
+      <li><a href="#licence">Your licence to play</a></li>
+      <li><a href="#rules">Rules of play</a></li>
+      <li><a href="#purchases">Purchases, credits and obols</a></li>
+      <li><a href="#online">Online features</a></li>
+      <li><a href="#privacy">Privacy and analytics</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#saves">Your saved games</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      <li><a href="#liability">Limit of liability</a></li>
+      <li><a href="#consumer-rights">Your rights as a consumer</a></li>
+      <li><a href="#changes">Changes to these terms</a></li>
+      <li><a href="#law">Governing law</a></li>
+      <li><a href="#general">General</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section class="clause" id="about">
+    <h2><span class="num">1</span>About these terms</h2>
+    <p>These terms are an agreement between you and the developer of Space Traders, as named on the app&rsquo;s Google Play page (&ldquo;we&rdquo; or &ldquo;us&rdquo;).</p>
+    <p>They apply when you install or play Space Traders on Android. If you do not agree with them, do not play the game.</p>
+    <p>If you are not yet an adult where you live, a parent or guardian must agree to these terms for you.</p>
+  </section>
+
+  <section class="clause" id="licence">
+    <h2><span class="num">2</span>Your licence to play</h2>
+    <p>We let you install and play Space Traders on devices you own or control, for your own personal use. This permission is personal to you. You cannot sell it or pass it on.</p>
+    <p>The game and everything in it, such as its ships, art, sound, text and software, belong to us or to the people who license them to us. Playing the game does not make you the owner of any of it.</p>
+    <p>You must not copy, sell, rent or change the game, or take its software apart, except where the law lets you do this.</p>
+    <p>You can stop at any time by uninstalling the game. We can end your permission to play if you break these terms in a serious way.</p>
+  </section>
+
+  <section class="clause" id="rules">
+    <h2><span class="num">3</span>Rules of play</h2>
+    <p>When you play Space Traders, you must not:</p>
+    <ul>
+      <li>use cheats, hacks, bots or a modified version of the game;</li>
+      <li>use tools that change game data, saved games or network traffic;</li>
+      <li>use bugs or errors (exploits) to get credits, obols or items, or to fake results in an online feature, for example fake Hunter Pack kills;</li>
+      <li>try to get into our online services or another player&rsquo;s data without permission, or try to disrupt the online features;</li>
+      <li>use any online feature in a way that is abusive, harmful or illegal.</li>
+    </ul>
+    <p>If you find a bug, please tell us instead of using it.</p>
+    <p>If you break these rules, we may remove ships you uploaded, take away credits, obols or items you got by breaking them, or block your access to online features.</p>
+  </section>
+
+  <section class="clause" id="purchases">
+    <h2><span class="num">4</span>Purchases, credits and obols</h2>
+    <p>Space Traders has two in-game currencies: <strong>credits</strong> and <strong>obols</strong>. You earn both by playing, for example from trade, bounties, shipwrecks and battles. You can also buy them with real money.</p>
+    <div class="table-scroll">
+      <table>
+        <caption>In-game store on the effective date</caption>
+        <thead>
+          <tr><th scope="col">Item</th><th scope="col">What you get</th><th scope="col">How often</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Credit packs</th><td>10 million, 25 million or 100 million credits</td><td>Any number of times</td></tr>
+          <tr><th scope="row">Obol packs</th><td>5, 10 or 30 obols</td><td>Any number of times</td></tr>
+          <tr><th scope="row">Welcome pack</th><td>25 million credits and 10 obols</td><td>Once per Google account</td></tr>
+          <tr><th scope="row">Body kits</th><td>A new look for one ship hull, for example Venomwing or Stormkeep. A body kit does not change the ship&rsquo;s stats.</td><td>Once per Google account, for each kit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The store in the game always shows the current items. Google Play shows each price in your local currency before you pay.</p>
+    <ul>
+      <li><strong>Payment.</strong> All purchases go through Google Play billing. Google Play&rsquo;s own terms also apply to the payment.</li>
+      <li><strong>No cash value.</strong> Credits, obols, body kits and all other in-game items are virtual. They have no cash value. You cannot exchange them for real money, sell them, or transfer them to another person or account.</li>
+      <li><strong>A licence, not ownership.</strong> When you buy an item, you get permission to use it in the game. You do not own it.</li>
+      <li><strong>Where items go.</strong> Credits and obols you buy go into the saved game you are playing when the purchase completes. Body kits are linked to your Google account. The game adds the body kits you own to every saved game that you play with that account.</li>
+      <li><strong>Pending payments.</strong> If a payment is pending, for example a cash payment that has not cleared, you get the items when Google Play confirms the payment. If the game closes before it gives you your items, it tries again the next time it starts.</li>
+      <li><strong>Spending is final.</strong> We do not give back credits or obols that you spend in the game.</li>
+      <li><strong>Refunds.</strong> You ask for refunds through Google Play. Refunds follow the Google Play refund policy and the law where you live. If a purchase is refunded or charged back, we may remove the items from that purchase.</li>
+      <li><strong>Game balance.</strong> We may change the game, for example prices in credits or obols, rewards, drop rates and the strength of ships and items. This can change what your credits, obols or items are worth in the game.</li>
+      <li><strong>Young players.</strong> If you are not yet an adult where you live, get permission from a parent or guardian before you buy anything.</li>
+    </ul>
+  </section>
+
+  <section class="clause" id="online">
+    <h2><span class="num">5</span>Online features</h2>
+    <p>Some parts of the game use the internet. On the effective date, the online feature is <strong>Hunter Packs</strong>. You can upload copies of your ships, up to 5 ships in each of 3 packs. Other players can then hunt those copies in their games.</p>
+    <p>When another player defeats one of your uploaded ships, you earn a reward that you collect in the game. On the effective date, each kill pays 1,000,000 credits and 1 obol.</p>
+    <ul>
+      <li><strong>What the game uploads.</strong> Copies of your ships: the hull, colours, weapons, upgrades, pilot level and a pilot name that the game makes up. The game does not upload your captain name or any other text you type.</li>
+      <li><strong>Sign-in.</strong> The game connects to the online service without an account name or password. The online features run on Google Firebase services.</li>
+      <li><strong>Your uploads.</strong> When you upload ships, you let us store the copies and show them to other players in the game while the feature runs.</li>
+      <li><strong>Changes.</strong> Online features need an internet connection and may not always be available. We may change, limit or stop any online feature, including its rewards. If a feature stops, uploaded ships and rewards you have not collected may be lost.</li>
+    </ul>
+  </section>
+
+  <section class="clause" id="privacy">
+    <h2><span class="num">6</span>Privacy and analytics</h2>
+    <p>The game uses Google Analytics for Firebase to learn how people play, for example which menus they open and how far they get in the game. We use this to improve the game.</p>
+    <p>The privacy policy explains what data the game collects and how we use it. You can read it through the privacy policy linked on the app&rsquo;s Google Play page.</p>
+    <p>On the effective date, the game shows no ads.</p>
+  </section>
+
+  <section class="clause" id="updates">
+    <h2><span class="num">7</span>Updates</h2>
+    <p>We may release updates to fix problems, add content or change the game.</p>
+    <p>Some updates are required. When a required update is available, the game asks you to update through Google Play, and you must update to keep playing. An update can need an internet connection and storage space on your device.</p>
+    <p>We do not promise that the game will work on every device or on every version of Android.</p>
+  </section>
+
+  <section class="clause" id="saves">
+    <h2><span class="num">8</span>Your saved games</h2>
+    <p>The game keeps your saved games only on your device. On the effective date, there is no cloud save.</p>
+    <p>If you uninstall the game, clear its data, or reset or lose your device, you can lose your progress. You can also lose the credits, obols and items in your saved games. We cannot get them back for you. Body kits linked to your Google account are the exception (see section 4).</p>
+  </section>
+
+  <section class="clause" id="disclaimer">
+    <h2><span class="num">9</span>Disclaimer</h2>
+    <p>To the extent the law allows, we provide the game as it is and as it is available. We do not promise that it is free of errors, that it will always be available, or that it will meet your needs.</p>
+  </section>
+
+  <section class="clause" id="liability">
+    <h2><span class="num">10</span>Limit of liability</h2>
+    <p>To the extent the law allows, we are not responsible for indirect or unexpected losses, or for the loss of progress, credits, obols or items.</p>
+    <p>To the extent the law allows, our total liability to you for all claims about the game is limited to the amount you paid for in-game purchases in the 12 months before the claim.</p>
+    <p>Nothing in these terms limits our liability for death or personal injury caused by our negligence, for fraud, or for anything else the law does not let us limit.</p>
+  </section>
+
+  <section class="clause rights" id="consumer-rights">
+    <h2><span class="num">11</span>Your rights as a consumer</h2>
+    <p>Nothing in these terms limits your rights as a consumer under the law where you live. This includes players in the European Economic Area (EEA) and the United Kingdom.</p>
+    <p>If any part of these terms conflicts with those rights, those rights apply.</p>
+  </section>
+
+  <section class="clause" id="changes">
+    <h2><span class="num">12</span>Changes to these terms</h2>
+    <p>We may change these terms, for example when the game changes or the law changes. We will put the new terms on this page with a new effective date.</p>
+    <p>If you keep playing after a change starts to apply, the new terms apply to you. If you do not agree with the new terms, stop playing and uninstall the game.</p>
+  </section>
+
+  <section class="clause" id="law">
+    <h2><span class="num">13</span>Governing law</h2>
+    <p>These terms are governed by the law of the place where the developer is established. This is subject to section 11: you keep the protection of the consumer law where you live, and you can bring a claim in your local courts if that law lets you.</p>
+  </section>
+
+  <section class="clause" id="general">
+    <h2><span class="num">14</span>General</h2>
+    <p>If a court decides that a part of these terms cannot be enforced, the rest of the terms still apply.</p>
+    <p>If we do not enforce a part of these terms at once, we can still enforce it later.</p>
+  </section>
+
+  <section class="clause" id="contact">
+    <h2><span class="num">15</span>Contact</h2>
+    <p>For questions about these terms or the game, use the developer email address on the app&rsquo;s Google Play page.</p>
+  </section>
+
+  <footer class="foot">
+    <p>Space Traders Terms of Service. Effective 7 November 2026.</p>
+    <p>This is the first version of these terms.</p>
+  </footer>
+</main>
+</body>
+</html>
